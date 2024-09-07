@@ -1550,7 +1550,7 @@
     "type": "text",
     "placeholders": {}
   },
-  "userSentUnknownEvent": "{username} enviou un evento {type]",
+  "userSentUnknownEvent": "{username} enviou un evento {type}",
   "@userSentUnknownEvent": {
     "type": "text",
     "placeholders": {

@@ -77,7 +77,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0"
+    version: "2.5.0-nullsafety.3"
   base58check:
     dependency: transitive
     description:
@@ -91,7 +91,7 @@ packages:
       name: boolean_selector
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.0-nullsafety.3"
   cached_network_image:
     dependency: "direct main"
     description:
@@ -112,14 +112,14 @@ packages:
       name: characters
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.0-nullsafety.5"
   charcode:
     dependency: transitive
     description:
       name: charcode
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.0-nullsafety.3"
   circular_check_box:
     dependency: "direct main"
     description:
@@ -140,14 +140,14 @@ packages:
       name: clock
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.0-nullsafety.3"
   collection:
     dependency: transitive
     description:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.15.0"
+    version: "1.15.0-nullsafety.5"
   convert:
     dependency: transitive
     description:
@@ -224,23 +224,23 @@ packages:
       name: fake_async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.0-nullsafety.3"
   famedlysdk:
     dependency: "direct main"
     description:
       path: "."
-      ref: main
-      resolved-ref: fb0de1ce5993299b4f12d5a2adaa0324fe5d4f01
-      url: "https://gitlab.com/famedly/famedlysdk.git"
+      ref: "88bc1507220a969ba205023fea1ec51b287adf18"
+      resolved-ref: "88bc1507220a969ba205023fea1ec51b287adf18"
+      url: "https://github.com/famedly/matrix-dart-sdk.git"
     source: git
     version: "0.0.1"
   fcm_shared_isolate:
     dependency: "direct main"
     description:
       path: "."
-      ref: ios
-      resolved-ref: "86519130e5e122a20fdd31de34013d62a88f106d"
-      url: "https://gitlab.com/famedly/libraries/fcm_shared_isolate.git"
+      ref: "84559d5fbf40932ee8fe15ee5bf6546b4e2aeda7"
+      resolved-ref: "84559d5fbf40932ee8fe15ee5bf6546b4e2aeda7"
+      url: "https://github.com/famedly/fcm_shared_isolate"
     source: git
     version: "0.0.1"
   ffi:
@@ -256,7 +256,7 @@ packages:
       name: file
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.1.0"
+    version: "6.0.0-nullsafety.4"
   file_chooser:
     dependency: transitive
     description:
@@ -389,18 +389,16 @@ packages:
   flutter_math:
     dependency: transitive
     description:
-      path: "."
-      ref: "6c3284faaedfe1dcb08f23d2c519bc95cbf0dbaf"
-      resolved-ref: "6c3284faaedfe1dcb08f23d2c519bc95cbf0dbaf"
-      url: "https://github.com/walsha2/flutter_math.git"
-    source: git
-    version: "0.3.0-nullsafety.1"
+      name: flutter_math
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.1"
   flutter_matrix_html:
     dependency: "direct main"
     description:
       path: "."
-      ref: "6b6a850fcfc3b0a3e88a3dd6beb79eda3acac853"
-      resolved-ref: "6b6a850fcfc3b0a3e88a3dd6beb79eda3acac853"
+      ref: "9867e39fa0aa294a605641a84b956a8e30795f10"
+      resolved-ref: "9867e39fa0aa294a605641a84b956a8e30795f10"
       url: "https://github.com/Sorunome/flutter_matrix_html.git"
     source: git
     version: "0.2.0"
@@ -445,21 +443,21 @@ packages:
       name: flutter_sound_lite
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.5.3+1"
+    version: "7.8.4"
   flutter_sound_platform_interface:
     dependency: transitive
     description:
       name: flutter_sound_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.5.3+1"
+    version: "7.8.4"
   flutter_sound_web:
     dependency: transitive
     description:
       name: flutter_sound_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.5.3+1"
+    version: "7.8.4"
   flutter_spinkit:
     dependency: transitive
     description:
@@ -574,7 +572,7 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.17.0"
+    version: "0.17.0-nullsafety.2"
   io:
     dependency: transitive
     description:
@@ -595,7 +593,7 @@ packages:
       name: js
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.3"
+    version: "0.6.3-nullsafety.3"
   localstorage:
     dependency: "direct main"
     description:
@@ -630,7 +628,7 @@ packages:
       name: matcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.10"
+    version: "0.12.10-nullsafety.3"
   matrix_api_lite:
     dependency: transitive
     description:
@@ -658,7 +656,7 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.0"
+    version: "1.3.0-nullsafety.6"
   mime:
     dependency: transitive
     description:
@@ -684,9 +682,9 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: master
-      resolved-ref: c8eb59c25c4e3a568bd64e4722108ec45259e157
-      url: "https://gitlab.com/famedly/libraries/native_imaging.git"
+      ref: a0fabd096f9d52da47dae5f90824a4c76aeeb299
+      resolved-ref: a0fabd096f9d52da47dae5f90824a4c76aeeb299
+      url: "https://github.com/famedly/dart_native_imaging.git"
     source: git
     version: "0.0.1"
   nested:
@@ -772,7 +770,7 @@ packages:
       name: path
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.0"
+    version: "1.8.0-nullsafety.3"
   path_drawing:
     dependency: transitive
     description:
@@ -828,7 +826,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.11.0"
+    version: "1.10.0-nullsafety.2"
   permission_handler:
     dependency: "direct main"
     description:
@@ -877,14 +875,14 @@ packages:
       name: pool
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.0"
+    version: "1.5.0-nullsafety.3"
   process:
     dependency: transitive
     description:
       name: process
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.0.0-nullsafety.4"
   provider:
     dependency: "direct main"
     description:
@@ -1036,21 +1034,21 @@ packages:
       name: source_map_stack_trace
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.0-nullsafety.4"
   source_maps:
     dependency: transitive
     description:
       name: source_maps
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.10"
+    version: "0.10.10-nullsafety.3"
   source_span:
     dependency: transitive
     description:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.0"
+    version: "1.8.0-nullsafety.4"
   sqflite:
     dependency: "direct main"
     description:
@@ -1078,21 +1076,21 @@ packages:
       name: stack_trace
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.10.0"
+    version: "1.10.0-nullsafety.6"
   stream_channel:
     dependency: transitive
     description:
       name: stream_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.0-nullsafety.3"
   string_scanner:
     dependency: transitive
     description:
       name: string_scanner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.0-nullsafety.3"
   swipe_to_action:
     dependency: "direct main"
     description:
@@ -1113,28 +1111,28 @@ packages:
       name: term_glyph
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.0-nullsafety.3"
   test:
     dependency: transitive
     description:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.16.5"
+    version: "1.16.0-nullsafety.17"
   test_api:
     dependency: transitive
     description:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.19"
+    version: "0.2.19-nullsafety.6"
   test_core:
     dependency: transitive
     description:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.15"
+    version: "0.3.12-nullsafety.15"
   timezone:
     dependency: transitive
     description:
@@ -1148,23 +1146,23 @@ packages:
       name: tuple
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-nullsafety.0"
+    version: "1.0.3"
   typed_data:
     dependency: transitive
     description:
       name: typed_data
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.0"
+    version: "1.3.0-nullsafety.5"
   unifiedpush:
     dependency: "direct main"
     description:
       path: "."
-      ref: "8edc09a87d726d912926ac612e209573452c1273"
-      resolved-ref: "8edc09a87d726d912926ac612e209573452c1273"
+      ref: fe92a13cbd509cc149b0e19e54a6b5d4a71cd7ff
+      resolved-ref: fe92a13cbd509cc149b0e19e54a6b5d4a71cd7ff
       url: "https://github.com/UnifiedPush/flutter-connector.git"
     source: git
-    version: "0.0.1"
+    version: "1.0.1"
   universal_html:
     dependency: "direct main"
     description:
@@ -1248,7 +1246,7 @@ packages:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.0-nullsafety.5"
   vm_service:
     dependency: transitive
     description:
@@ -1313,5 +1311,5 @@ packages:
     source: hosted
     version: "0.1.2"
 sdks:
-  dart: ">=2.12.0-0.0 <3.0.0"
-  flutter: ">=1.24.0-6.0.pre"
+  dart: ">=2.12.0-0.0 <=2.12.0-133.7.beta"
+  flutter: ">=1.22.2 <2.0.0"

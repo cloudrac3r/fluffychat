@@ -12,19 +12,19 @@ dependencies:
 
   famedlysdk:
     git:
-      url: https://gitlab.com/famedly/famedlysdk.git
-      ref: main
+      url: https://github.com/famedly/matrix-dart-sdk.git
+      ref: 88bc1507220a969ba205023fea1ec51b287adf18
 
   unifiedpush:
     git:
       url: https://github.com/UnifiedPush/flutter-connector.git
-      ref: 8edc09a87d726d912926ac612e209573452c1273
+      ref: fe92a13cbd509cc149b0e19e54a6b5d4a71cd7ff
 
   # Firebase Notifications
   fcm_shared_isolate:
     git:
-      url: https://gitlab.com/famedly/libraries/fcm_shared_isolate.git
-      ref: ios
+      url: https://github.com/famedly/fcm_shared_isolate
+      ref: 84559d5fbf40932ee8fe15ee5bf6546b4e2aeda7
   firebase_messaging: any
   cupertino_icons: any
   localstorage: ^3.0.6+9
@@ -47,7 +47,7 @@ dependencies:
   universal_html: ^1.2.4
   receive_sharing_intent: ^1.4.3
   flutter_slidable: ^0.5.7
-  flutter_sound_lite: ^7.5.3+1
+  flutter_sound_lite: ^7.7.0+1
   open_file: ^3.0.3
   mime_type: ^0.3.2
   flushbar: ^1.10.4
@@ -55,7 +55,7 @@ dependencies:
   flutter_matrix_html:
     git:
       url: https://github.com/Sorunome/flutter_matrix_html.git
-      ref: 6b6a850fcfc3b0a3e88a3dd6beb79eda3acac853
+      ref: 9867e39fa0aa294a605641a84b956a8e30795f10
   moor: ^3.4.0
   sqlite3: ^0.1.8
   sqflite: ^1.3.2+2 # Still used to obtain the database location
@@ -68,8 +68,8 @@ dependencies:
     sdk: flutter
   native_imaging:
     git:
-      url: https://gitlab.com/famedly/libraries/native_imaging.git
-      ref: master
+      url: https://github.com/famedly/dart_native_imaging.git
+      ref: a0fabd096f9d52da47dae5f90824a4c76aeeb299
   flutter_blurhash: ^0.5.0
   sentry: ">=3.0.0 <4.0.0"
   scroll_to_index: ^1.0.6
