@@ -1,4 +1,4 @@
-package chat.fluffy.fluffychat
+package moe.cadence.fluffychat
 
 import io.flutter.app.FlutterApplication
 import io.flutter.plugin.common.PluginRegistry

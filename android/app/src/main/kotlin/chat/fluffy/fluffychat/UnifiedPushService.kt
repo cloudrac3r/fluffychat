@@ -1,8 +1,8 @@
-package chat.fluffy.fluffychat
+package moe.cadence.fluffychat
 
 import org.unifiedpush.flutter.connector.UnifiedPushHandler
 
-import chat.fluffy.fluffychat.MainActivity
+import moe.cadence.fluffychat.MainActivity
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine

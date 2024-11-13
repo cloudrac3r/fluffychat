@@ -5,7 +5,7 @@ abstract class AppConfig {
   static String get applicationName => _applicationName;
   static String _applicationWelcomeMessage;
   static String get applicationWelcomeMessage => _applicationWelcomeMessage;
-  static String _defaultHomeserver = 'matrix.org';
+  static String _defaultHomeserver = 'matrix.cadence.moe';
   static String get defaultHomeserver => _defaultHomeserver;
   static String jitsiInstance = 'https://meet.jit.si/';
   static double fontSizeFactor = 1.0;
@@ -15,8 +15,8 @@ abstract class AppConfig {
   static const Color primaryColorLight = Color(0xFFCCBDEA);
   static String _privacyUrl = 'https://fluffychat.im/en/privacy.html';
   static String get privacyUrl => _privacyUrl;
-  static const String appId = 'im.fluffychat.FluffyChat';
-  static const String appOpenUrlScheme = 'im.fluffychat';
+  static const String appId = 'moe.cadence.fluffychat.FluffyChat';
+  static const String appOpenUrlScheme = 'moe.cadence.fluffychat';
   static const String sourceCodeUrl = 'https://gitlab.com/famedly/fluffychat';
   static const String supportUrl =
       'https://gitlab.com/famedly/fluffychat/issues';

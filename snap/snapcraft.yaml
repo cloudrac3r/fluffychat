@@ -43,7 +43,7 @@ slots:
   dbus-svc:
     interface: dbus
     bus: session
-    name: chat.fluffy.fluffychat
+    name: moe.cadence.fluffychat
 
 apps:
   fluffychat:
