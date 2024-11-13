@@ -6,7 +6,6 @@ import 'package:famedlysdk/famedlysdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 
-import 'package:future_loading_dialog/future_loading_dialog.dart';
 import 'matrix.dart';
 
 class EncryptionButton extends StatefulWidget {
@@ -34,24 +33,13 @@ class _EncryptionButtonState extends State<EncryptionButton> {
       );
       return;
     }
-    if (await showOkCancelAlertDialog(
-          context: context,
-          useRootNavigator: false,
-          title: L10n.of(context).enableEncryption,
-          message: widget.room.client.encryptionEnabled
-              ? L10n.of(context).enableEncryptionWarning
-              : L10n.of(context).needPantalaimonWarning,
-          okLabel: L10n.of(context).yes,
-          cancelLabel: L10n.of(context).cancel,
-        ) ==
-        OkCancelResult.ok) {
-      await showFutureLoadingDialog(
-        context: context,
-        future: () => widget.room.enableEncryption(),
-      );
-      // we want to enable the lock icon
-      setState(() => null);
-    }
+    await showOkAlertDialog(
+      context: context,
+      useRootNavigator: false,
+      okLabel: L10n.of(context).ok,
+      message: L10n.of(context).unknownEncryptionAlgorithm,
+    );
+    return;
   }
 
   @override
