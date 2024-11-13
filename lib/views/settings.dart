@@ -525,16 +525,9 @@ class _SettingsState extends State<Settings> {
             ),
             ListTile(
               trailing: Icon(Icons.exit_to_app_outlined),
-              title: Text(L10n.of(context).logout),
+              title: Text(L10n.of(context).logout,
+                  style: TextStyle(color: Colors.red)),
               onTap: () => logoutAction(context),
-            ),
-            ListTile(
-              trailing: Icon(Icons.delete_forever_outlined),
-              title: Text(
-                L10n.of(context).deleteAccount,
-                style: TextStyle(color: Colors.red),
-              ),
-              onTap: () => _deleteAccountAction(context),
             ),
             if (client.encryption != null) ...{
               Divider(thickness: 1),
