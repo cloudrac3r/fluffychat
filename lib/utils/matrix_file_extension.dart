@@ -1,19 +1,13 @@
-import 'dart:io';
-
-import 'package:android_path_provider/android_path_provider.dart';
 import 'package:famedlysdk/famedlysdk.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
+import 'package:file_picker_cross/file_picker_cross.dart';
 import 'package:flutter/foundation.dart';
-import 'package:open_file/open_file.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:universal_html/prefer_universal/html.dart' as html;
 import 'package:mime_type/mime_type.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 extension MatrixFileExtension on MatrixFile {
   void open() async {
+    final fileName = name.split('/').last;
     if (kIsWeb) {
-      final fileName = name.split('/').last;
       final mimeType = mime(fileName);
       var element = html.document.createElement('a');
       element.setAttribute(
@@ -27,16 +21,8 @@ extension MatrixFileExtension on MatrixFile {
       element.click();
       element.remove();
     } else {
-      if (!(await Permission.storage.request()).isGranted) return;
-      final downloadsDir = PlatformInfos.isDesktop
-          ? (await getDownloadsDirectory()).path
-          : Platform.isAndroid
-              ? (await AndroidPathProvider.downloadsPath)
-              : (await getApplicationDocumentsDirectory()).path;
-
-      final file = File(downloadsDir + '/' + name.split('/').last);
-      file.writeAsBytesSync(bytes);
-      await OpenFile.open(file.path);
+      final file = FilePickerCross(bytes, path: fileName);
+      await file.exportToStorage();
     }
     return;
   }
