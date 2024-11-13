@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'matrix_file_extension.dart';
+import '../components/matrix.dart';
 import '../views/image_view.dart';
 
 extension LocalizedBody on Event {
@@ -17,7 +18,8 @@ extension LocalizedBody on Event {
     }
     final matrixFile = await showFutureLoadingDialog(
       context: context,
-      future: () => downloadAndDecryptAttachmentCached(),
+      future: () =>
+          downloadAndDecryptAttachmentCached(client: Matrix.of(context).client),
     );
     matrixFile.result?.open();
   }
@@ -92,12 +94,13 @@ extension LocalizedBody on Event {
   }
 
   Future<MatrixFile> downloadAndDecryptAttachmentCached(
-      {bool getThumbnail = false}) async {
+      {bool getThumbnail = false, @required Client client}) async {
     final mxcUrl = attachmentOrThumbnailMxcUrl(getThumbnail: getThumbnail);
     _downloadAndDecryptFutures[mxcUrl] ??= downloadAndDecryptAttachment(
       getThumbnail: getThumbnail,
       downloadCallback: (String url) async {
-        final file = await DefaultCacheManager().getSingleFile(url);
+        final file = await DefaultCacheManager()
+            .getSingleFile(url, headers: client.headers);
         return await file.readAsBytes();
       },
     );

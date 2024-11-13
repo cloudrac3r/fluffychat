@@ -7,6 +7,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../utils/event_extension.dart';
+import 'matrix.dart';
 
 class ImageBubble extends StatefulWidget {
   final Event event;
@@ -53,8 +54,8 @@ class _ImageBubbleState extends State<ImageBubble> {
 
   Future<void> _requestFile({bool getThumbnail = false}) async {
     try {
-      final res = await widget.event
-          .downloadAndDecryptAttachmentCached(getThumbnail: getThumbnail);
+      final res = await widget.event.downloadAndDecryptAttachmentCached(
+          getThumbnail: getThumbnail, client: Matrix.of(context).client);
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (getThumbnail) {
           if (mounted) {
@@ -171,10 +172,12 @@ class _ImageBubbleState extends State<ImageBubble> {
         fit: widget.fit,
       );
     } else {
+      final client = Matrix.of(context).client;
       return CachedNetworkImage(
         // as we change the url on-error we need a key so that the widget actually updates
         key: ValueKey(displayUrl),
         imageUrl: displayUrl,
+        httpHeaders: client.headers,
         placeholder: (context, url) {
           if (!widget.thumbnailOnly &&
               displayUrl != thumbnailUrl &&
@@ -183,6 +186,7 @@ class _ImageBubbleState extends State<ImageBubble> {
             return CachedNetworkImage(
               key: ValueKey(thumbnailUrl),
               imageUrl: thumbnailUrl,
+              httpHeaders: client.headers,
               placeholder: (c, u) => getPlaceholderWidget(),
               fit: widget.fit,
             );

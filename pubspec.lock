@@ -229,9 +229,9 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "88bc1507220a969ba205023fea1ec51b287adf18"
-      resolved-ref: "88bc1507220a969ba205023fea1ec51b287adf18"
-      url: "https://github.com/famedly/matrix-dart-sdk.git"
+      ref: "47d9070b000f08f2d8784f227a65f0b445868c85"
+      resolved-ref: "47d9070b000f08f2d8784f227a65f0b445868c85"
+      url: "https://github.com/cloudrac3r/matrix-dart-sdk.git"
     source: git
     version: "0.0.1"
   fcm_shared_isolate:
@@ -397,9 +397,9 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "9867e39fa0aa294a605641a84b956a8e30795f10"
-      resolved-ref: "9867e39fa0aa294a605641a84b956a8e30795f10"
-      url: "https://github.com/Sorunome/flutter_matrix_html.git"
+      ref: "91efb52ac76cb734b9774066957b597b6f1de4c0"
+      resolved-ref: "91efb52ac76cb734b9774066957b597b6f1de4c0"
+      url: "https://github.com/cloudrac3r/flutter_matrix_html.git"
     source: git
     version: "0.2.0"
   flutter_olm:
@@ -875,7 +875,7 @@ packages:
       name: pool
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.0-nullsafety.3"
+    version: "1.5.0-nullsafety.2"
   process:
     dependency: transitive
     description:
@@ -1034,14 +1034,14 @@ packages:
       name: source_map_stack_trace
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0-nullsafety.4"
+    version: "2.1.0-nullsafety.3"
   source_maps:
     dependency: transitive
     description:
       name: source_maps
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.10-nullsafety.3"
+    version: "0.10.10-nullsafety.2"
   source_span:
     dependency: transitive
     description:

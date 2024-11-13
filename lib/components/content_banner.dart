@@ -54,6 +54,7 @@ class ContentBanner extends StatelessWidget {
               child: (!loading && mxContent != null)
                   ? CachedNetworkImage(
                       imageUrl: src,
+                      httpHeaders: client.headers,
                       height: 300,
                       fit: BoxFit.cover,
                     )

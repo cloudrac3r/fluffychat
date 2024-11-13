@@ -64,6 +64,7 @@ class HtmlMessage extends StatelessWidget {
           animated: animated,
         );
       },
+      mxcHeaders: matrix.client.headers,
       setCodeLanguage: (String key, String value) async {
         await matrix.store.setItem('${SettingKeys.codeLanguage}.$key', value);
       },

@@ -412,14 +412,16 @@ class _EmoteImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = 38.0;
     final devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
+    final client = Matrix.of(context).client;
     final url = Uri.parse(mxc)?.getThumbnail(
-      Matrix.of(context).client,
+      client,
       width: size * devicePixelRatio,
       height: size * devicePixelRatio,
       method: ThumbnailMethod.scale,
     );
     return CachedNetworkImage(
       imageUrl: url,
+      httpHeaders: client.headers,
       fit: BoxFit.contain,
       width: size,
       height: size,

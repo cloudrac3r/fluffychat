@@ -72,8 +72,8 @@ class _AudioPlayerState extends State<AudioPlayer> {
     if (status != AudioPlayerStatus.NOT_DOWNLOADED) return;
     setState(() => status = AudioPlayerStatus.DOWNLOADING);
     try {
-      final matrixFile =
-          await widget.event.downloadAndDecryptAttachmentCached();
+      final matrixFile = await widget.event.downloadAndDecryptAttachmentCached(
+          client: Matrix.of(context).client);
       setState(() {
         audioFile = matrixFile.bytes;
         status = AudioPlayerStatus.DOWNLOADED;

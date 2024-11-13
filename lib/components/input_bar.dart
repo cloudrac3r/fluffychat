@@ -161,6 +161,7 @@ class InputBar extends StatelessWidget {
           children: <Widget>[
             CachedNetworkImage(
               imageUrl: url,
+              httpHeaders: client.headers,
               width: size,
               height: size,
             ),

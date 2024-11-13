@@ -26,8 +26,9 @@ class Avatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final client = this.client ?? Matrix.of(context).client;
     var thumbnail = mxContent?.getThumbnail(
-      client ?? Matrix.of(context).client,
+      client,
       width: size * MediaQuery.of(context).devicePixelRatio,
       height: size * MediaQuery.of(context).devicePixelRatio,
     );
@@ -69,6 +70,7 @@ class Avatar extends StatelessWidget {
               ? textWidget
               : CachedNetworkImage(
                   imageUrl: src,
+                  httpHeaders: client.headers,
                   fit: BoxFit.cover,
                   width: size,
                   height: size,
