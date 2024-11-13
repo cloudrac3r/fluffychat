@@ -81,6 +81,8 @@ class _ChatState extends State<Chat> {
 
   bool showScrollDownButton = false;
 
+  bool isRequestingHistory = false;
+
   bool get selectMode => selectedEvents.isNotEmpty;
 
   final int _loadHistoryCount = 100;
@@ -108,7 +110,15 @@ class _ChatState extends State<Chat> {
   void requestHistory() async {
     if (_canLoadMore) {
       try {
+        setState(() {
+          isRequestingHistory = true;
+        });
         await timeline.requestHistory(historyCount: _loadHistoryCount);
+        if (mounted) {
+          setState(() {
+            isRequestingHistory = false;
+          });
+        }
       } catch (err) {
         await FlushbarHelper.createError(
                 message: err.toLocalizedString(context))
@@ -673,7 +683,7 @@ class _ChatState extends State<Chat> {
                   height: 56,
                   alignment: Alignment.center,
                   child: EncryptionButton(room),
-                  ),
+                ),
                 ChatSettingsPopupMenu(room, !room.isDirectChat),
               ],
       ),
@@ -756,7 +766,8 @@ class _ChatState extends State<Chat> {
                         childrenDelegate: SliverChildBuilderDelegate(
                           (BuildContext context, int i) {
                             return i == filteredEvents.length + 1
-                                ? timeline.isRequestingHistory
+                                ? (isRequestingHistory ||
+                                        timeline.isRequestingHistory)
                                     ? Container(
                                         height: 50,
                                         alignment: Alignment.center,
@@ -1130,108 +1141,108 @@ class _ChatState extends State<Chat> {
                                   ),
                                   inputText.isEmpty
                                       ? Container(
-                                      height: 56,
-                                      alignment: Alignment.center,
-                                      child: PopupMenuButton<String>(
-                                        icon: Icon(Icons.add_outlined),
-                                        onSelected: (String choice) async {
-                                          if (choice == 'file') {
-                                            sendFileAction(context);
-                                          } else if (choice == 'image') {
-                                            sendImageAction(context);
-                                          }
-                                          if (choice == 'camera') {
-                                            openCameraAction(context);
-                                          }
-                                          if (choice == 'voice') {
-                                            voiceMessageAction(context);
-                                          }
-                                        },
+                                          height: 56,
+                                          alignment: Alignment.center,
+                                          child: PopupMenuButton<String>(
+                                            icon: Icon(Icons.add_outlined),
+                                            onSelected: (String choice) async {
+                                              if (choice == 'file') {
+                                                sendFileAction(context);
+                                              } else if (choice == 'image') {
+                                                sendImageAction(context);
+                                              }
+                                              if (choice == 'camera') {
+                                                openCameraAction(context);
+                                              }
+                                              if (choice == 'voice') {
+                                                voiceMessageAction(context);
+                                              }
+                                            },
                                             itemBuilder:
                                                 (BuildContext context) =>
-                                            <PopupMenuEntry<String>>[
-                                          PopupMenuItem<String>(
-                                            value: 'file',
-                                            child: ListTile(
-                                              leading: CircleAvatar(
+                                                    <PopupMenuEntry<String>>[
+                                              PopupMenuItem<String>(
+                                                value: 'file',
+                                                child: ListTile(
+                                                  leading: CircleAvatar(
                                                     backgroundColor:
                                                         Colors.green,
                                                     foregroundColor:
                                                         Colors.white,
                                                     child: Icon(Icons
                                                         .attachment_outlined),
-                                              ),
+                                                  ),
                                                   title: Text(L10n.of(context)
                                                       .sendFile),
                                                   contentPadding:
                                                       EdgeInsets.all(0),
-                                            ),
-                                          ),
-                                          PopupMenuItem<String>(
-                                            value: 'image',
-                                            child: ListTile(
-                                              leading: CircleAvatar(
+                                                ),
+                                              ),
+                                              PopupMenuItem<String>(
+                                                value: 'image',
+                                                child: ListTile(
+                                                  leading: CircleAvatar(
                                                     backgroundColor:
                                                         Colors.blue,
                                                     foregroundColor:
                                                         Colors.white,
                                                     child: Icon(
                                                         Icons.image_outlined),
-                                              ),
+                                                  ),
                                                   title: Text(L10n.of(context)
                                                       .sendImage),
                                                   contentPadding:
                                                       EdgeInsets.all(0),
-                                            ),
-                                          ),
-                                          if (PlatformInfos.isMobile)
-                                            PopupMenuItem<String>(
-                                              value: 'camera',
-                                              child: ListTile(
-                                                leading: CircleAvatar(
-                                                  backgroundColor:
-                                                      Colors.purple,
+                                                ),
+                                              ),
+                                              if (PlatformInfos.isMobile)
+                                                PopupMenuItem<String>(
+                                                  value: 'camera',
+                                                  child: ListTile(
+                                                    leading: CircleAvatar(
+                                                      backgroundColor:
+                                                          Colors.purple,
                                                       foregroundColor:
                                                           Colors.white,
-                                                  child: Icon(Icons
-                                                      .camera_alt_outlined),
+                                                      child: Icon(Icons
+                                                          .camera_alt_outlined),
+                                                    ),
+                                                    title: Text(L10n.of(context)
+                                                        .openCamera),
+                                                    contentPadding:
+                                                        EdgeInsets.all(0),
+                                                  ),
                                                 ),
-                                                title: Text(L10n.of(context)
-                                                    .openCamera),
-                                                contentPadding:
-                                                    EdgeInsets.all(0),
-                                              ),
-                                            ),
-                                          if (PlatformInfos.isMobile)
-                                            PopupMenuItem<String>(
-                                              value: 'voice',
-                                              child: ListTile(
-                                                leading: CircleAvatar(
+                                              if (PlatformInfos.isMobile)
+                                                PopupMenuItem<String>(
+                                                  value: 'voice',
+                                                  child: ListTile(
+                                                    leading: CircleAvatar(
                                                       backgroundColor:
                                                           Colors.red,
                                                       foregroundColor:
                                                           Colors.white,
                                                       child: Icon(Icons
                                                           .mic_none_outlined),
+                                                    ),
+                                                    title: Text(L10n.of(context)
+                                                        .voiceMessage),
+                                                    contentPadding:
+                                                        EdgeInsets.all(0),
+                                                  ),
                                                 ),
-                                                title: Text(L10n.of(context)
-                                                    .voiceMessage),
-                                                contentPadding:
-                                                    EdgeInsets.all(0),
-                                              ),
-                                            ),
-                                        ],
-                                      ),
+                                            ],
+                                          ),
                                         )
                                       : Container(
-                                      height: 56,
-                                      alignment: Alignment.center,
-                                      child: IconButton(
-                                        icon: Icon(Icons.send_outlined),
-                                        onPressed: () => send(),
-                                        tooltip: L10n.of(context).send,
-                                      ),
-                                    ),
+                                          height: 56,
+                                          alignment: Alignment.center,
+                                          child: IconButton(
+                                            icon: Icon(Icons.send_outlined),
+                                            onPressed: () => send(),
+                                            tooltip: L10n.of(context).send,
+                                          ),
+                                        ),
                                 ],
                         ),
                       )
