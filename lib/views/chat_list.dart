@@ -216,7 +216,14 @@ class _ChatListState extends State<ChatList> {
                         ),
                   centerTitle: false,
                   actions: selectMode == SelectMode.share
-                      ? null
+                      ? [
+                          IconButton(
+                            icon: Icon(Icons.search_outlined),
+                            tooltip: L10n.of(context).search,
+                            onPressed: () => AdaptivePageLayout.of(context)
+                                .pushNamed('/search'),
+                          )
+                        ]
                       : selectMode == SelectMode.select
                           ? [
                               if (_selectedRoomIds.length == 1)
