@@ -1,4 +1,5 @@
 import 'package:famedlysdk/famedlysdk.dart';
+import 'package:fluffychat/components/avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:characters/characters.dart';
@@ -23,10 +24,12 @@ class MessageReactions extends StatelessWidget {
           reactionMap[key] = _ReactionEntry(
             key: key,
             count: 0,
+            who: <User>{},
             reacted: false,
           );
         }
         reactionMap[key].count++;
+        reactionMap[key].who.add(e.sender);
         reactionMap[key].reacted |= e.senderId == e.room.client.userID;
       }
     }
@@ -40,6 +43,24 @@ class MessageReactions extends StatelessWidget {
                 reactionKey: r.key,
                 count: r.count,
                 reacted: r.reacted,
+                onLongPress: (position) {
+                  showMenu(
+                      context: context,
+                      position: RelativeRect.fromLTRB(
+                        position.dx,
+                        position.dy,
+                        MediaQuery.of(context).size.width - position.dx,
+                        MediaQuery.of(context).size.height - position.dy,
+                      ),
+                      items: r.who
+                          .toList()
+                          .map((u) => PopupMenuItem(
+                              child: ListTile(
+                                  leading:
+                                      Avatar(u.avatarUrl, u.calcDisplayname()),
+                                  title: Text(u.calcDisplayname()))))
+                          .toList());
+                },
                 onTap: () {
                   if (r.reacted) {
                     final evt = allReactionEvents.firstWhere(
@@ -71,8 +92,14 @@ class _Reaction extends StatelessWidget {
   final int count;
   final bool reacted;
   final void Function() onTap;
+  final void Function(Offset) onLongPress;
 
-  const _Reaction({this.reactionKey, this.count, this.reacted, this.onTap});
+  const _Reaction(
+      {this.reactionKey,
+      this.count,
+      this.reacted,
+      this.onTap,
+      this.onLongPress});
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +114,9 @@ class _Reaction extends StatelessWidget {
     final padding = fontSize / 5;
     Widget content;
     if (reactionKey.startsWith('mxc://')) {
+      final client = Matrix.of(context).client;
       final src = Uri.parse(reactionKey)?.getThumbnail(
-        Matrix.of(context).client,
+        client,
         width: 9999,
         height: fontSize * MediaQuery.of(context).devicePixelRatio,
         method: ThumbnailMethod.scale,
@@ -98,6 +126,7 @@ class _Reaction extends StatelessWidget {
         children: <Widget>[
           CachedNetworkImage(
             imageUrl: src,
+            httpHeaders: client.headers,
             height: fontSize,
           ),
           Container(width: 4),
@@ -119,28 +148,32 @@ class _Reaction extends StatelessWidget {
             fontSize: DefaultTextStyle.of(context).style.fontSize,
           ));
     }
-    return InkWell(
-      onTap: () => onTap != null ? onTap() : null,
-      child: Container(
-        decoration: BoxDecoration(
-          color: color,
-          border: Border.all(
-            width: 1,
-            color: borderColor,
+    return GestureDetector(
+        onLongPressStart: (details) =>
+            onLongPress != null ? onLongPress(details.globalPosition) : null,
+        child: InkWell(
+          onTap: () => onTap != null ? onTap() : null,
+          child: Container(
+            decoration: BoxDecoration(
+              color: color,
+              border: Border.all(
+                width: 1,
+                color: borderColor,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            padding: EdgeInsets.all(padding),
+            child: content,
           ),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        padding: EdgeInsets.all(padding),
-        child: content,
-      ),
-    );
+        ));
   }
 }
 
 class _ReactionEntry {
   String key;
   int count;
+  Set<User> who;
   bool reacted;
 
-  _ReactionEntry({this.key, this.count, this.reacted});
+  _ReactionEntry({this.key, this.count, this.who, this.reacted});
 }
