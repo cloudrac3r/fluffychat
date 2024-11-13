@@ -249,7 +249,8 @@ class _ChatDetailsState extends State<ChatDetails> {
                                     backgroundColor: Theme.of(context)
                                         .scaffoldBackgroundColor,
                                     foregroundColor: Colors.grey,
-                                    radius: Avatar.defaultSize / 2,
+                                    radius: Avatar.defaultSize *
+                                        AppConfig.avatarBorderRadius,
                                     child: Icon(Icons.edit_outlined),
                                   )
                                 : null,
@@ -504,7 +505,8 @@ class _ChatDetailsState extends State<ChatDetails> {
                                     backgroundColor:
                                         Theme.of(context).primaryColor,
                                     foregroundColor: Colors.white,
-                                    radius: Avatar.defaultSize / 2,
+                                    radius: Avatar.defaultSize *
+                                        AppConfig.avatarBorderRadius,
                                     child: Icon(Icons.add_outlined),
                                   ),
                                   onTap: () => AdaptivePageLayout.of(context)

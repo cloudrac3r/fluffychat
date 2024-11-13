@@ -1,4 +1,5 @@
 import 'package:famedlysdk/famedlysdk.dart';
+import 'package:fluffychat/app_config.dart';
 import 'package:fluffychat/utils/string_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,8 @@ class Avatar extends StatelessWidget {
       ),
     );
     final noPic = mxContent == null || mxContent.toString().isEmpty;
-    final borderRadius = BorderRadius.circular(size / 2);
+    final borderRadius =
+        BorderRadius.circular(size * AppConfig.avatarBorderRadius);
     return InkWell(
       onTap: onTap,
       borderRadius: borderRadius,

@@ -23,9 +23,9 @@ abstract class AppConfig {
   static const bool enableSentry = true;
   static const String sentryDns =
       'https://8591d0d863b646feb4f3dda7e5dcab38@o256755.ingest.sentry.io/5243143';
-  static bool renderHtml = false;
-  static bool hideRedactedEvents = false;
-  static bool hideUnknownEvents = false;
+  static bool renderHtml = true;
+  static bool hideRedactedEvents = true;
+  static bool hideUnknownEvents = true;
   static const bool hideTypingUsernames = false;
   static const bool hideAllStateEvents = false;
   static const String inviteLinkPrefix = 'https://matrix.to/#/';
@@ -42,7 +42,8 @@ abstract class AppConfig {
   static const String emojiFontUrl =
       'https://github.com/googlefonts/noto-emoji/';
   static const double borderRadius = 12.0;
-  static const double messageBubbleBorderRadius = 16.0;
+  static const double avatarBorderRadius = 0.2; // times avatar size
+  static const double messageBubbleBorderRadius = 8.0;
 
   static void loadFromJson(Map<String, dynamic> json) {
     if (json['application_name'] is String) {

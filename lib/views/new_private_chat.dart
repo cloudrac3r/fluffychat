@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:adaptive_page_layout/adaptive_page_layout.dart';
 import 'package:famedlysdk/famedlysdk.dart';
+import 'package:fluffychat/app_config.dart';
 import 'package:fluffychat/components/avatar.dart';
 import 'package:fluffychat/components/contacts_list.dart';
 import 'package:future_loading_dialog/future_loading_dialog.dart';
@@ -163,7 +164,7 @@ class _NewPrivateChatState extends State<NewPrivateChat> {
           Divider(height: 1),
           ListTile(
             leading: CircleAvatar(
-              radius: Avatar.defaultSize / 2,
+              radius: Avatar.defaultSize * AppConfig.avatarBorderRadius,
               foregroundColor: Theme.of(context).accentColor,
               backgroundColor: Theme.of(context).secondaryHeaderColor,
               child: Icon(Icons.share_outlined),
