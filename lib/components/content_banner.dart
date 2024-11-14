@@ -26,11 +26,12 @@ class ContentBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final client = this.client ?? Matrix.of(context).client;
     final mediaQuery = MediaQuery.of(context);
     final bannerSize =
         (mediaQuery.size.width * mediaQuery.devicePixelRatio).toInt();
     final src = mxContent?.getThumbnail(
-      client ?? Matrix.of(context).client,
+      client,
       width: bannerSize,
       height: bannerSize,
       method: ThumbnailMethod.scale,
