@@ -13,7 +13,7 @@ dependencies:
   famedlysdk:
     git:
       url: https://github.com/cloudrac3r/matrix-dart-sdk.git
-      ref: 47d9070b000f08f2d8784f227a65f0b445868c85
+      ref: 809be20250a87341029a0edfad671135b1b08990
 
   unifiedpush:
     git:

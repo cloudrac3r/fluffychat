@@ -229,8 +229,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "47d9070b000f08f2d8784f227a65f0b445868c85"
-      resolved-ref: "47d9070b000f08f2d8784f227a65f0b445868c85"
+      ref: "809be20250a87341029a0edfad671135b1b08990"
+      resolved-ref: "809be20250a87341029a0edfad671135b1b08990"
       url: "https://github.com/cloudrac3r/matrix-dart-sdk.git"
     source: git
     version: "0.0.1"
@@ -632,10 +632,12 @@ packages:
   matrix_api_lite:
     dependency: transitive
     description:
-      name: matrix_api_lite
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.0"
+      path: "."
+      ref: c608b5524626890bae6396b3f7d9aa65b7a8953f
+      resolved-ref: c608b5524626890bae6396b3f7d9aa65b7a8953f
+      url: "https://github.com/cloudrac3r/matrix_api_lite.git"
+    source: git
+    version: "0.2.7"
   matrix_file_e2ee:
     dependency: transitive
     description:
