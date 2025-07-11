@@ -13,7 +13,7 @@ dependencies:
   famedlysdk:
     git:
       url: https://github.com/cloudrac3r/matrix-dart-sdk.git
-      ref: 809be20250a87341029a0edfad671135b1b08990
+      ref: 6cd4c512cf0e614dc59f532dadbca10f0c65445a
 
   unifiedpush:
     git:
@@ -55,7 +55,7 @@ dependencies:
   flutter_matrix_html:
     git:
       url: https://github.com/cloudrac3r/flutter_matrix_html.git
-      ref: 91efb52ac76cb734b9774066957b597b6f1de4c0
+      ref: 509c0390a448d634a2744ad28bcfc4fdd236e40a
   moor: ^3.4.0
   sqlite3: ^0.1.8
   sqflite: ^1.3.2+2 # Still used to obtain the database location
@@ -107,18 +107,3 @@ flutter:
     - assets/sounds/
     - assets/js/
     - assets/js/package/
-
-  fonts:
-    - family: NotoEmoji
-      fonts:
-        - asset: fonts/NotoEmoji/NotoColorEmoji.ttf
-    - family: NotoSans
-      fonts:
-        - asset: fonts/NotoSans/NotoSans-Regular.ttf
-        - asset: fonts/NotoSans/NotoSans-Italic.ttf
-          style: italic
-        - asset: fonts/NotoSans/NotoSans-Bold.ttf
-          weight: 700
-        - asset: fonts/NotoSans/NotoSans-BoldItalic.ttf
-          weight: 700
-          style: italic

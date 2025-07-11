@@ -136,7 +136,6 @@ class ChatListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isMuted = room.pushRuleState != PushRuleState.notify;
     final typingText = room.getLocalizedTypingText(context);
     final ownMessage =
         room.lastEvent?.senderId == Matrix.of(context).client.userID;
@@ -169,11 +168,19 @@ class ChatListItem extends StatelessWidget {
                   softWrap: false,
                 ),
               ),
-              if (isMuted)
+              if (room.pushRuleState == PushRuleState.dont_notify)
                 Padding(
                   padding: const EdgeInsets.only(left: 4.0),
                   child: Icon(
                     Icons.notifications_off_outlined,
+                    size: 16,
+                  ),
+                ),
+              if (room.pushRuleState == PushRuleState.notify)
+                Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: Icon(
+                    Icons.favorite_outline_rounded,
                     size: 16,
                   ),
                 ),
@@ -250,7 +257,7 @@ class ChatListItem extends StatelessWidget {
                   padding: EdgeInsets.only(
                       right: room.notificationCount > 0 ? 4.0 : 0.0),
                   child: Icon(
-                    Icons.push_pin_outlined,
+                    Icons.star_outline_rounded,
                     size: 20,
                     color: Theme.of(context).accentColor,
                   ),

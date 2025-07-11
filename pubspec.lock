@@ -229,8 +229,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "809be20250a87341029a0edfad671135b1b08990"
-      resolved-ref: "809be20250a87341029a0edfad671135b1b08990"
+      ref: "6cd4c512cf0e614dc59f532dadbca10f0c65445a"
+      resolved-ref: "6cd4c512cf0e614dc59f532dadbca10f0c65445a"
       url: "https://github.com/cloudrac3r/matrix-dart-sdk.git"
     source: git
     version: "0.0.1"
@@ -397,8 +397,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "91efb52ac76cb734b9774066957b597b6f1de4c0"
-      resolved-ref: "91efb52ac76cb734b9774066957b597b6f1de4c0"
+      ref: "509c0390a448d634a2744ad28bcfc4fdd236e40a"
+      resolved-ref: "509c0390a448d634a2744ad28bcfc4fdd236e40a"
       url: "https://github.com/cloudrac3r/flutter_matrix_html.git"
     source: git
     version: "0.2.0"

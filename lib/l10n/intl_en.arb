@@ -1235,7 +1235,7 @@
       "number": {}
     }
   },
-  "ok": "ok",
+  "ok": "OK",
   "@ok": {
     "type": "text",
     "placeholders": {}

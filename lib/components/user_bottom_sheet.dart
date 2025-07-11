@@ -165,7 +165,7 @@ class UserBottomSheet extends StatelessWidget {
           child: Material(
             elevation: 4,
             child: Scaffold(
-              extendBodyBehindAppBar: true,
+              extendBodyBehindAppBar: false,
               appBar: AppBar(
                 elevation: 0,
                 backgroundColor:
