@@ -20,6 +20,8 @@ import '../mouse_over_builder.dart';
 
 enum ArchivedRoomAction { delete, rejoin }
 
+enum InvitedRoomAction { accept, delete, ignore }
+
 class ChatListItem extends StatelessWidget {
   final Room room;
   final bool activeChat;
@@ -38,12 +40,58 @@ class ChatListItem extends StatelessWidget {
   void clickAction(BuildContext context) async {
     if (onTap != null) return onTap();
     if (!activeChat) {
-      if (room.membership == Membership.invite &&
-          (await showFutureLoadingDialog(
-                      context: context, future: () => room.join()))
-                  .error !=
-              null) {
-        return;
+      if (room.membership == Membership.invite) {
+        final action = await showModalActionSheet<InvitedRoomAction>(
+          context: context,
+          title: L10n.of(context).joinRoom,
+          message: L10n.of(context).youAreInvitedToThisChat,
+          actions: [
+            SheetAction(
+              label: L10n.of(context).accept,
+              key: InvitedRoomAction.accept,
+            ),
+            SheetAction(
+              label: L10n.of(context).reject,
+              key: InvitedRoomAction.delete,
+              isDestructiveAction: true,
+            ),
+            if (room.directChatMatrixID != null)
+              SheetAction(
+                label: L10n.of(context).ignore,
+                key: InvitedRoomAction.ignore,
+                isDestructiveAction: true,
+              ),
+          ],
+        );
+        if (action != null) {
+          switch (action) {
+            case InvitedRoomAction.accept:
+              await showFutureLoadingDialog(
+                context: context,
+                future: () => room.join(),
+              );
+              break;
+            case InvitedRoomAction.delete:
+              await showFutureLoadingDialog(
+                  context: context,
+                  future: () async {
+                    await room.leave();
+                    await room.forget();
+                  });
+              break;
+            case InvitedRoomAction.ignore:
+              await showFutureLoadingDialog(
+                  context: context,
+                  future: () async {
+                    await Matrix.of(context)
+                        .client
+                        .ignoreUser(room.directChatMatrixID);
+                    await room.leave();
+                    await room.forget();
+                  });
+              await archiveAction(context);
+          }
+        }
       }
 
       if (room.membership == Membership.ban) {
